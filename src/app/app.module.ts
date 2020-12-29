@@ -5,17 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControlComponent } from './form-control/form-control.component';
+import { IndexComponent } from './index/index.component';
+import { FormGroupComponent } from './form-group/form-group.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormControlComponent,
+    IndexComponent,
+    FormGroupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

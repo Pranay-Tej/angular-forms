@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Form Group & Form Builder</h1>
+  <form (ngSubmit)="login()" class="loginForm" [formGroup]="loginForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input name="email" type="email" matInput placeholder="example@domain.com" formControlName="email">
+      <mat-error *ngIf="email.errors?.email" >Invalid Email</mat-error>
+      <mat-error *ngIf="email.errors?.required" >Email is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input name="password" type="password" matInput placeholder="NOT password123" formControlName="password">
+      <mat-error *ngIf="password.errors?.required && password.touched">Password is required</mat-error>
+      <mat-error *ngIf="password.errors?.minlength && password.touched">Minimum 6 characters</mat-error>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>

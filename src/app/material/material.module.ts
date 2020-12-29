@@ -44,7 +44,24 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTreeModule,
   ],
   exports: [
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatListModule,
+    MatPaginatorModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatSliderModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTreeModule,
   ]
 })
 export class MaterialModule { }

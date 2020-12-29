@@ -1,0 +1,19 @@
+.container{
+  display: grid;
+  height: 100%;
+  place-content: center;
+  justify-items: center;
+  font-size: 2em;
+  row-gap: 1em;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  transition: all 150ms;
+}
+
+a:hover{
+  text-decoration: underline;
+  color: rgb(66, 64, 145);
+}
