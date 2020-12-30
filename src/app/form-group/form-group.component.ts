@@ -23,8 +23,8 @@ export class FormGroupComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      email: this.fb.control('', [Validators.required, Validators.email]),
+      password: this.fb.control('', [Validators.required, Validators.minLength(6)])
     })
   }
 
@@ -33,7 +33,7 @@ export class FormGroupComponent implements OnInit {
     console.log(this.loginForm.getRawValue());
     
     if(response){
-      this.router.navigate(['/form-group'])
+      this.router.navigate(['/form-array'])
     }
   }
 

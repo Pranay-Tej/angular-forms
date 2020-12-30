@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Form Array</h1>
+  <form (ngSubmit)="login()" class="loginForm" [formGroup]="loginForm">
+
+    <div formArrayName="phoneNumbers">
+      <div *ngFor="let phone of phoneNumbers.controls; let i=index">
+        <mat-form-field appearance="fill">
+          <mat-label>Phone:{{i}}</mat-label>
+          <input name="phone{{i}}" type="text" matInput placeholder="1234567890" [formControlName]="i">
+          <mat-error *ngIf="phone.errors?.required" >Phone is required</mat-error>
+          <mat-error *ngIf="phone.errors?.pattern" >Invalid Phone number</mat-error>
+          <mat-error *ngIf="phone.errors?.minlength" >Minimum 10 characters</mat-error>
+          <mat-error *ngIf="phone.errors?.maxlength" >Maximum 10 characters</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>
