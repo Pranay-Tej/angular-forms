@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Nested Form Group</h1>
+  <form (ngSubmit)="login()" class="loginForm" [formGroup]="loginForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input name="email" type="email" matInput placeholder="example@domain.com" formControlName="email">
+      <mat-error *ngIf="email.errors?.email" >Invalid Email</mat-error>
+      <mat-error *ngIf="email.errors?.required" >Email is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input name="password" type="password" matInput placeholder="NOT password123" formControlName="password">
+      <mat-error *ngIf="password.errors?.required && password.touched">Password is required</mat-error>
+      <mat-error *ngIf="password.errors?.minlength && password.touched">Minimum 6 characters</mat-error>
+    </mat-form-field>
+
+    <div formGroupName="address" class="address">
+      <mat-form-field appearance="fill">
+        <mat-label>Street</mat-label>
+        <input name="street" type="text" matInput placeholder="Baker Street" formControlName="street">
+        <mat-error *ngIf="loginForm.get('address').get('street').errors?.required" >Street is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Postal Code</mat-label>
+        <input name="postalCode" type="text" matInput placeholder="12345" formControlName="postalCode">
+        <mat-error *ngIf="loginForm.get('address').get('postalCode').errors?.required" >Postal Code is required</mat-error>
+        <mat-error *ngIf="loginForm.get('address').get('postalCode').errors?.pattern" >Invalid Code</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>City</mat-label>
+        <input name="city" type="text" matInput placeholder="London" formControlName="city">
+        <mat-error *ngIf="loginForm.get('address').get('city').errors?.required" >City is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Country</mat-label>
+        <input name="country" type="text" matInput placeholder="England" formControlName="country">
+        <mat-error *ngIf="loginForm.get('address').get('country').errors?.required" >Country is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>

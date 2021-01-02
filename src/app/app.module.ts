@@ -10,6 +10,7 @@ import { FormControlComponent } from './form-control/form-control.component';
 import { IndexComponent } from './index/index.component';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { FormArrayComponent } from './form-array/form-array.component';
+import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormArrayComponent } from './form-array/form-array.component';
     FormControlComponent,
     IndexComponent,
     FormGroupComponent,
-    FormArrayComponent
+    FormArrayComponent,
+    NestedFormGroupComponent
   ],
   imports: [
     BrowserModule,
