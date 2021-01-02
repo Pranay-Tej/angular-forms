@@ -11,6 +11,7 @@ import { IndexComponent } from './index/index.component';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { FormArrayComponent } from './form-array/form-array.component';
 import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.component';
+import { DynamicFormArrayComponent } from './dynamic-form-array/dynamic-form-array.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.
     IndexComponent,
     FormGroupComponent,
     FormArrayComponent,
-    NestedFormGroupComponent
+    NestedFormGroupComponent,
+    DynamicFormArrayComponent
   ],
   imports: [
     BrowserModule,

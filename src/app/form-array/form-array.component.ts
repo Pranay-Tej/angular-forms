@@ -31,7 +31,7 @@ export class FormArrayComponent implements OnInit {
     console.log(this.loginForm.getRawValue());
     
     if(response){
-      this.router.navigate(['/nested-form-group'])
+      this.router.navigate(['/dynamic-form-array'])
     }
   }
 }

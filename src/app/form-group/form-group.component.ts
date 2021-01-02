@@ -33,7 +33,7 @@ export class FormGroupComponent implements OnInit {
     console.log(this.loginForm.getRawValue());
     
     if(response){
-      this.router.navigate(['/form-array'])
+      this.router.navigate(['/nested-form-group'])
     }
   }
 
