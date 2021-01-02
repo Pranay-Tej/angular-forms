@@ -1,11 +1,1 @@
-.container{
-  display: grid;
-  height: 100%;
-  place-content: center;
-  justify-items: center;
-}
 
-.loginForm{
-  display: grid;
-  place-content: center;
-}

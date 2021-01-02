@@ -2,3 +2,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 0;
+}
+
+.fullHeight{
+  /* Vertical align center of screen */
+  height: 100%;
+}
+
+.loginForm{
+  display: flex;
+  flex-direction: column;
+}

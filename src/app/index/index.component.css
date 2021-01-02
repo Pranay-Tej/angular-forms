@@ -1,16 +1,10 @@
-.container{
-  display: grid;
-  height: 100%;
-  place-content: center;
-  justify-items: center;
-  font-size: 2em;
-  row-gap: 1em;
-}
 
 a{
+  font-size: 2em;
   text-decoration: none;
   color: inherit;
   transition: all 150ms;
+  padding: 0.5em 0;
 }
 
 a:hover{
