@@ -1,0 +1,67 @@
+<div class="container">
+  <h1>Array of Groups</h1>
+  <form (ngSubmit)="login()" class="loginForm" [formGroup]="loginForm">
+    <div formArrayName="userList" class="userList">
+      <div
+        *ngFor="let user of userListFormArray.controls; let i = index"
+        formGroupName="{{ i }}"
+        class="user"
+      >
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input
+            name="firstName"
+            type="text"
+            matInput
+            placeholder="Sherlock"
+            formControlName="firstName"
+          />
+          <mat-error
+            *ngIf="
+              userListFormArray.controls[i].get('firstName').errors?.required
+            "
+            >First Name is required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input
+            name="lastName"
+            type="text"
+            matInput
+            placeholder="Holmes"
+            formControlName="lastName"
+          />
+          <mat-error
+            *ngIf="
+              userListFormArray.controls[i].get('lastName').errors?.required
+            "
+            >Last Name is required</mat-error
+          >
+        </mat-form-field>
+        <button
+          *ngIf="i !== 0"
+          mat-icon-button
+          color="warn"
+          type="button"
+          (click)="deleteUser(i)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      <button mat-flat-button type="button" (click)="addUser()">
+        <mat-icon>add</mat-icon>Add User
+      </button>
+    </div>
+
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="loginForm.invalid"
+    >
+      Login
+    </button>
+  </form>
+</div>

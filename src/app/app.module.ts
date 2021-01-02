@@ -12,6 +12,7 @@ import { FormGroupComponent } from './form-group/form-group.component';
 import { FormArrayComponent } from './form-array/form-array.component';
 import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.component';
 import { DynamicFormArrayComponent } from './dynamic-form-array/dynamic-form-array.component';
+import { ArrayOfGroupsComponent } from './array-of-groups/array-of-groups.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DynamicFormArrayComponent } from './dynamic-form-array/dynamic-form-arr
     FormGroupComponent,
     FormArrayComponent,
     NestedFormGroupComponent,
-    DynamicFormArrayComponent
+    DynamicFormArrayComponent,
+    ArrayOfGroupsComponent
   ],
   imports: [
     BrowserModule,

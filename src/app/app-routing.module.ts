@@ -1,3 +1,4 @@
+import { ArrayOfGroupsComponent } from './array-of-groups/array-of-groups.component';
 import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'dynamic-form-array',
     component: DynamicFormArrayComponent
+  },
+  {
+    path: 'array-of-groups',
+    component: ArrayOfGroupsComponent
   }
 ];
 

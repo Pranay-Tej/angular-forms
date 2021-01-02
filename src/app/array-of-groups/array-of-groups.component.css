@@ -1,6 +1,10 @@
-.phoneNumbers{
+.userList{
   margin: 2em 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.user{
+  display: flex;
 }

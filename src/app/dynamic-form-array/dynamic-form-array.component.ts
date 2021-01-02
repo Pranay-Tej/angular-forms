@@ -19,7 +19,9 @@ export class DynamicFormArrayComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      phoneNumbers : this.fb.array([])
+      phoneNumbers : this.fb.array([
+        this.fb.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')])
+      ])
     })
   }
 
@@ -38,7 +40,7 @@ export class DynamicFormArrayComponent implements OnInit {
     console.log(this.loginForm.getRawValue());
     
     if(response){
-      this.router.navigate(['/nested-form-group'])
+      this.router.navigate(['/array-of-groups'])
     }
   }
 
