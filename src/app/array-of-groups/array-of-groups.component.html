@@ -8,9 +8,9 @@
         class="user"
       >
         <mat-form-field appearance="fill">
-          <mat-label>First Name</mat-label>
+          <mat-label>User {{i}} First Name</mat-label>
           <input
-            name="firstName"
+            name="firstName{{i}}"
             type="text"
             matInput
             placeholder="Sherlock"
@@ -24,9 +24,9 @@
           >
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <mat-label>Last Name</mat-label>
+          <mat-label>User {{i}} Last Name</mat-label>
           <input
-            name="lastName"
+            name="lastName{{i}}"
             type="text"
             matInput
             placeholder="Holmes"
@@ -40,7 +40,7 @@
           >
         </mat-form-field>
         <button
-          *ngIf="i !== 0"
+          *ngIf="i !== 0 || userListFormArray.controls.length > 1"
           mat-icon-button
           color="warn"
           type="button"

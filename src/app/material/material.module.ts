@@ -19,6 +19,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatSortModule} from '@angular/material/sort';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTableModule} from '@angular/material/table';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTreeModule} from '@angular/material/tree';
 
 @NgModule({
@@ -43,6 +44,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatSortModule,
     MatStepperModule,
     MatTableModule,
+    MatToolbarModule,
     MatTreeModule,
   ],
   exports: [
@@ -64,6 +66,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatSortModule,
     MatStepperModule,
     MatTableModule,
+    MatToolbarModule,
     MatTreeModule,
   ]
 })
