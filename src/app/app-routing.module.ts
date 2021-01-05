@@ -12,36 +12,43 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: IndexComponent
+    component: IndexComponent,
   },
   {
     path: 'form-control',
-    component: FormControlComponent
+    component: FormControlComponent,
   },
   {
     path: 'form-group',
-    component: FormGroupComponent
+    component: FormGroupComponent,
   },
   {
     path: 'nested-form-group',
-    component: NestedFormGroupComponent
+    component: NestedFormGroupComponent,
   },
   {
     path: 'form-array',
-    component: FormArrayComponent
+    component: FormArrayComponent,
   },
   {
     path: 'dynamic-form-array',
-    component: DynamicFormArrayComponent
+    component: DynamicFormArrayComponent,
   },
   {
     path: 'array-of-groups',
-    component: ArrayOfGroupsComponent
-  }
+    component: ArrayOfGroupsComponent,
+  },
+  {
+    path: 'experiments',
+    loadChildren: () =>
+      import('./experiments/experiments.module').then(
+        (m) => m.ExperimentsModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
