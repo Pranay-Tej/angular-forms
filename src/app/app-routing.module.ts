@@ -7,12 +7,17 @@ import { FormControlComponent } from './form-control/form-control.component';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { IndexComponent } from './index/index.component';
 import { DynamicFormArrayComponent } from './dynamic-form-array/dynamic-form-array.component';
+import { ConceptsComponent } from './concepts/concepts.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
     component: IndexComponent,
+  },
+  {
+    path: 'concepts',
+    component: ConceptsComponent
   },
   {
     path: 'form-control',
@@ -45,6 +50,10 @@ const routes: Routes = [
         (m) => m.ExperimentsModule
       ),
   },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({

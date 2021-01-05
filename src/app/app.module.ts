@@ -14,6 +14,7 @@ import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.
 import { DynamicFormArrayComponent } from './dynamic-form-array/dynamic-form-array.component';
 import { ArrayOfGroupsComponent } from './array-of-groups/array-of-groups.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ConceptsComponent } from './concepts/concepts.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     NestedFormGroupComponent,
     DynamicFormArrayComponent,
     ArrayOfGroupsComponent,
-    NavBarComponent
+    NavBarComponent,
+    ConceptsComponent
   ],
   imports: [
     BrowserModule,
