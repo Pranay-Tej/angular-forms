@@ -1,1 +1,123 @@
-<p>fitness-form works!</p>
+<div class="fitnessForm">
+  <h1 class="formTitle">Fitness Target</h1>
+  <form [formGroup]="fitnessForm" (ngSubmit)="saveSchedule()">
+    <div class="mainControls">
+      <mat-form-field appearance="fill">
+        <mat-label>Start Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="startDate"
+          formControlName="startDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="startDate"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="endDate" formControlName="endDate" />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="endDate"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #endDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-checkbox
+        formControlName="permanentSchedule"
+        (change)="toggleEndDate()"
+        >Permanent Schedule</mat-checkbox
+      >
+      <mat-checkbox
+        formControlName="trackWaterIntake"
+        (change)="toggleWaterIntake()"
+        >Track Water Intake</mat-checkbox
+      >
+    </div>
+    <div formArrayName="week">
+      <div
+        *ngFor="let day of weekFormArray.controls; let i = index"
+        formGroupName="{{ i }}"
+        class="day"
+      >
+        <mat-checkbox formControlName="enableDay" (change)="toggleDay(i)">{{
+          weekList[i]
+        }}</mat-checkbox>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Calorie Intake</mat-label>
+          <input
+            name="{{ weekList[i] + 'CalorieIntake' }}"
+            type="text"
+            matInput
+            placeholder="500"
+            formControlName="calorieIntake"
+          />
+          <mat-error
+            *ngIf="
+              weekFormArray.controls[i].get('calorieIntake').errors?.required
+            "
+            >Enter calorie intake!</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Step Count</mat-label>
+          <input
+            name="{{ weekList[i] + 'StepCount' }}"
+            type="text"
+            matInput
+            placeholder="500"
+            formControlName="stepCount"
+            (keyup)="calculateCaloriesBurned(i)"
+          />
+          <mat-error
+            *ngIf="weekFormArray.controls[i].get('stepCount').errors?.required"
+            >Enter step count!</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Calorie Burned</mat-label>
+          <input name="{{weekList[i] + 'CaloriesBurned'}}" type="text" matInput placeholder="500" formControlName="caloriesBurned">
+          <mat-error *ngIf="weekFormArray.controls[i].get('caloriesBurned').errors?.required" >Enter calories burned!</mat-error>
+        </mat-form-field>
+
+        <!-- <div>
+          {{ weekFormArray.controls[i].get("caloriesBurned").value }}
+        </div> -->
+
+        <mat-form-field appearance="fill">
+          <mat-label>Water Intake</mat-label>
+          <input
+            name="{{ weekList[i] + 'WaterIntake' }}"
+            type="text"
+            matInput
+            placeholder="500"
+            formControlName="waterIntake"
+          />
+          <mat-error
+            *ngIf="
+              weekFormArray.controls[i].get('waterIntake').errors?.required
+            "
+            >Enter water intake!</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="save">
+      <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="fitnessForm.invalid"
+    >
+      Save
+    </button>
+    </div>
+  </form>
+</div>
