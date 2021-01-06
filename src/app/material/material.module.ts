@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button'
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -30,6 +31,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatCardModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatDialogModule,
     MatDividerModule,
     MatFormFieldModule,
@@ -52,6 +54,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatCardModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatDialogModule,
     MatDividerModule,
     MatFormFieldModule,
