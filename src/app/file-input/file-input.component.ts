@@ -26,29 +26,30 @@ export class FileInputComponent implements OnInit {
   }
 
   onFileChange(event) {
-    console.log(event);
+    let customFileName = document.querySelector('.customFileName') as HTMLElement;
+    let profileImage = document.querySelector('.profileImage') as HTMLElement;
+    let imagePreviewText = document.querySelector('.imagePreviewText') as HTMLElement;
 
     if (!event.target.value) {
-      document.querySelector('.customFileName').innerHTML = 'No file chosen';
-      document.querySelector('.profileImage').setAttribute('src', '');
-      document.querySelector('.profileImage').style.display = 'none';
-      document.querySelector('.imagePreviewText').style.display = 'block';
+      customFileName.innerHTML = 'No file chosen';
+      profileImage.setAttribute('src', '');
+      profileImage.style.display = 'none';
+      imagePreviewText.style.display = 'block';
     }
     if (event.target.files && event.target.files.length) {
       const reader = new FileReader();
       const selectedFile = event.target.files[0];
       reader.readAsDataURL(selectedFile);
       console.log(selectedFile);
-      document.querySelector('.customFileName').innerHTML = selectedFile.name;
+      customFileName.innerHTML = selectedFile.name;
 
       reader.addEventListener('load', () => {
         this.uploadedFileBase64 = reader.result;
         document
           .querySelector('.profileImage')
           .setAttribute('src', reader.result as any);
-        document.querySelector('.profileImage').style.display = 'block';
-        document.querySelector('.imagePreviewText').style.display =
-          'none';
+        profileImage.style.display = 'block';
+        imagePreviewText.style.display = 'none';
       });
       // this.uploadedFileFormData = new FormData();
       this.uploadedFileFormData.append(
@@ -61,7 +62,7 @@ export class FileInputComponent implements OnInit {
 
   submit() {
     console.log('upload');
-    console.log(this.fileInput);
+    // console.log(this.fileInput);
     // console.log(this.uploadedFileBase64);
     console.log('formData', this.uploadedFileFormData);
     console.log('form submit', {
