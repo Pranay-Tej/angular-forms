@@ -1,0 +1,25 @@
+.fileInputCustom {
+  margin: 1em;
+  display: grid;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.imagePreview {
+  width: 300px;
+  min-height: 100px;
+  border: 2px dashed hsl(0, 0%, 53%);
+  margin: 1em auto;
+  display: grid;
+  place-items: center;
+}
+
+.profileImage {
+  max-width: 300px;
+  background-position: center;
+  background-size: cover;
+  display: none;
+}

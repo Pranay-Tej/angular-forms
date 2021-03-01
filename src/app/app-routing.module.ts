@@ -8,6 +8,7 @@ import { FormGroupComponent } from './form-group/form-group.component';
 import { IndexComponent } from './index/index.component';
 import { DynamicFormArrayComponent } from './dynamic-form-array/dynamic-form-array.component';
 import { ConceptsComponent } from './concepts/concepts.component';
+import { FileInputComponent } from './file-input/file-input.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'array-of-groups',
     component: ArrayOfGroupsComponent,
+  },
+  {
+    path: 'file-input',
+    component: FileInputComponent,
   },
   {
     path: 'experiments',

@@ -1,0 +1,51 @@
+<div class="container fullHeight">
+  <h1>File Input</h1>
+  <form (ngSubmit)="submit()" class="loginForm" [formGroup]="profileForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input
+        name="username"
+        type="text"
+        matInput
+        placeholder="Username"
+        formControlName="username"
+      />
+      <mat-error *ngIf="profileForm.get('username').errors?.required"
+        >Enter username!</mat-error
+      >
+    </mat-form-field>
+
+    <input
+      name="file"
+      type="file"
+      (change)="onFileChange($event)"
+      formControlName="fileInput"
+      hidden
+      #fileInput
+    />
+    <div class="fileInputCustom">
+      <div class="imagePreview">
+        <img src="" alt="profileImage" class="profileImage">
+        <span class="imagePreviewText">Image Preview</span>
+      </div>
+      <button
+        mat-flat-button
+        color="primary"
+        type="button"
+        (click)="fileInput.click()"
+      >
+        <mat-icon>cloud_upload</mat-icon>
+        Profile Pic
+      </button>
+      <span class="customFileName">No file chosen</span>
+    </div>
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="profileForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>
