@@ -1,3 +1,4 @@
+import { CustomValidationComponent } from './custom-validation/custom-validation.component';
 import { ArrayOfGroupsComponent } from './array-of-groups/array-of-groups.component';
 import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.component';
 import { NgModule } from '@angular/core';
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: 'array-of-groups',
     component: ArrayOfGroupsComponent,
+  },
+  {
+    path: 'custom-validation',
+    component: CustomValidationComponent,
   },
   {
     path: 'file-input',

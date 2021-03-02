@@ -1,0 +1,26 @@
+<div class="container fullHeight">
+  <h1>Custom Validation</h1>
+  <h3>admin, password are invalid usernames</h3>
+  <form [formGroup]="profileForm" class="loginForm" (ngSubmit)="next()">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input
+        name="username"
+        type="text"
+        matInput
+        placeholder="Username"
+        formControlName="username"
+      />
+      <mat-error *ngIf="username.errors?.required">❗Username is required</mat-error>
+      <mat-error *ngIf="username.errors?.invalidUsername"
+        >❗Username {{ username.errors?.invalidUsername.value }} is not
+        allowed</mat-error
+      >
+      <mat-error *ngIf="username.errors?.invalidPatternValidator"
+        >Username {{ username.errors?.invalidPatternValidator.value }} is not
+        allowed</mat-error
+      >
+    </mat-form-field>
+    <button mat-flat-button color="primary" type="submit" [disabled]="profileForm.invalid">Next</button>
+  </form>
+</div>
