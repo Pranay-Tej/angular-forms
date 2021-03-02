@@ -26,15 +26,21 @@ export class FileInputComponent implements OnInit {
   }
 
   onFileChange(event) {
-    let customFileName = document.querySelector('.customFileName') as HTMLElement;
+    let customFileName = document.querySelector(
+      '.customFileName'
+    ) as HTMLElement;
     let profileImage = document.querySelector('.profileImage') as HTMLElement;
-    let imagePreviewText = document.querySelector('.imagePreviewText') as HTMLElement;
+    let imagePreviewText = document.querySelector(
+      '.imagePreviewText'
+    ) as HTMLElement;
+    let imagePreview = document.querySelector('.imagePreview') as HTMLElement;
 
     if (!event.target.value) {
       customFileName.innerHTML = 'No file chosen';
       profileImage.setAttribute('src', '');
       profileImage.style.display = 'none';
       imagePreviewText.style.display = 'block';
+      imagePreview.classList.add('borderDotted');
     }
     if (event.target.files && event.target.files.length) {
       const reader = new FileReader();
@@ -50,6 +56,7 @@ export class FileInputComponent implements OnInit {
           .setAttribute('src', reader.result as any);
         profileImage.style.display = 'block';
         imagePreviewText.style.display = 'none';
+        imagePreview.classList.remove('borderDotted');
       });
       // this.uploadedFileFormData = new FormData();
       this.uploadedFileFormData.append(

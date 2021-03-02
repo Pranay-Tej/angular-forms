@@ -10,11 +10,15 @@
 
 .imagePreview {
   width: 300px;
-  min-height: 100px;
-  border: 2px dashed hsl(0, 0%, 53%);
+  min-height: 150px;
   margin: 1em auto;
   display: grid;
   place-items: center;
+  border-radius: 2px;
+}
+
+.borderDotted{
+  border: 2px dashed hsl(0, 0%, 53%);
 }
 
 .profileImage {
@@ -22,4 +26,8 @@
   background-position: center;
   background-size: cover;
   display: none;
+}
+
+.customFileName{
+  margin: 1em auto;
 }
