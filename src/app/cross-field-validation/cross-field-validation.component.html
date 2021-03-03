@@ -1,0 +1,55 @@
+<div class="container fullHeight">
+  <h1>Cross-field Validation</h1>
+  <form [formGroup]="signUpForm" class="loginForm" (ngSubmit)="next()">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input
+        name="username"
+        type="text"
+        matInput
+        placeholder="Username"
+        formControlName="username"
+      />
+      <mat-error *ngIf="username.errors?.required"
+        >Username is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        name="password"
+        type="password"
+        matInput
+        placeholder="Password"
+        formControlName="password"
+      />
+      <mat-error *ngIf="password.errors?.required"
+        >Password is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Confirm Password</mat-label>
+      <input
+        name="confirmPassword"
+        type="password"
+        matInput
+        placeholder="Confirm Password"
+        formControlName="confirmPassword"
+      />
+      <mat-error *ngIf="confirmPassword.errors?.required"
+        >Password confirmation is required</mat-error
+      >
+      <mat-error *ngIf="confirmPassword.errors?.passwordMisMatch"
+        >Passwords should match</mat-error
+      >
+    </mat-form-field>
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="signUpForm.invalid"
+    >
+      Sign Up
+    </button>
+  </form>
+</div>

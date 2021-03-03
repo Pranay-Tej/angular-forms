@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArrayOfGroupsComponent } from './array-of-groups/array-of-groups.component';
 import { ConceptsComponent } from './concepts/concepts.component';
+import { CrossFieldValidationComponent } from './cross-field-validation/cross-field-validation.component';
 import { CustomValidationComponent } from './custom-validation/custom-validation.component';
 import { DynamicFormArrayComponent } from './dynamic-form-array/dynamic-form-array.component';
 import { FileInputComponent } from './file-input/file-input.component';
@@ -22,6 +23,7 @@ import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.
     AppComponent,
     ArrayOfGroupsComponent,
     ConceptsComponent,
+    CrossFieldValidationComponent,
     CustomValidationComponent,
     DynamicFormArrayComponent,
     FileInputComponent,

@@ -27,6 +27,6 @@ export class CustomValidationComponent implements OnInit {
   ngOnInit(): void {}
 
   next(){
-    this.router.navigate(['/file-input'])
+    this.router.navigate(['/cross-field-validation'])
   }
 }
