@@ -9,6 +9,7 @@ import { ConceptsComponent } from './concepts/concepts.component';
 import { CrossFieldValidationComponent } from './cross-field-validation/cross-field-validation.component';
 import { CustomValidationComponent } from './custom-validation/custom-validation.component';
 import { DynamicFormArrayComponent } from './dynamic-form-array/dynamic-form-array.component';
+import { DynamicValidationComponent } from './dynamic-validation/dynamic-validation.component';
 import { FileInputComponent } from './file-input/file-input.component';
 import { FormArrayComponent } from './form-array/form-array.component';
 import { FormControlComponent } from './form-control/form-control.component';
@@ -26,6 +27,7 @@ import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.
     CrossFieldValidationComponent,
     CustomValidationComponent,
     DynamicFormArrayComponent,
+    DynamicValidationComponent,
     FileInputComponent,
     FormArrayComponent,
     FormControlComponent,

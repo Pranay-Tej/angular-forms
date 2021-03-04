@@ -1,0 +1,69 @@
+<div class="container fullHeight">
+  <h1>Dynamic Validation</h1>
+  <h3>Incomplete...</h3>
+  <form [formGroup]="profileForm" class="loginForm" (ngSubmit)="next()">
+    <mat-form-field appearance="fill">
+      <mat-label>Minimum Length</mat-label>
+      <input
+        name="minLength"
+        type="number"
+        matInput
+        placeholder="1"
+        formControlName="usernameMinLength"
+      />
+      <mat-error *ngIf="profileForm.get('usernameMinLength').errors?.required"
+        >Minimum Length is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Maximum Length</mat-label>
+      <input
+        name="maxLength"
+        type="number"
+        matInput
+        placeholder="1"
+        formControlName="usernameMaxLength"
+      />
+      <mat-error *ngIf="profileForm.get('usernameMaxLength').errors?.required"
+        >Maximum Length is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input
+        name="username"
+        type="text"
+        matInput
+        placeholder="Username"
+        formControlName="username"
+      />
+      <mat-error *ngIf="username.errors?.required"
+        >Username is required</mat-error
+      >
+      <!-- <mat-error *ngIf="username.errors?.minLength"
+        >Username must have at least
+        {{ username.value.length }} characters</mat-error
+      >
+      <mat-error *ngIf="username.errors?.maxLength"
+        >Username must not be longer than
+        {{ username.value.length }} characters</mat-error
+      > -->
+      <mat-error *ngIf="username.errors?.minimumLength"
+        >Enter at least
+        {{ username.errors?.minimumLength.value }} characters</mat-error
+      >
+      <mat-error *ngIf="username.errors?.maximumLength"
+        >Enter less than
+        {{ username.errors?.maximumLength.value }} characters</mat-error
+      >
+    </mat-form-field>
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="profileForm.invalid"
+    >
+      Next
+    </button>
+  </form>
+</div>

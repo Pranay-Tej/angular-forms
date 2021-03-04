@@ -29,6 +29,7 @@ export default (control: AbstractControl): ValidationErrors => {
     confirmPassword.setErrors({ passwordMisMatch: { value: true } });
     // form level errors are not working ??????
     // Source: https://www.freecodecamp.org/news/how-to-validate-angular-reactive-forms/
+    // this works even if we don't return here ??????
     // return { passwordMisMatch: { value: true } };
   } else {
     return null;

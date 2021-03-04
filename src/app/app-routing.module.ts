@@ -1,16 +1,17 @@
-import { CustomValidationComponent } from './custom-validation/custom-validation.component';
-import { ArrayOfGroupsComponent } from './array-of-groups/array-of-groups.component';
-import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { ArrayOfGroupsComponent } from './array-of-groups/array-of-groups.component';
+import { ConceptsComponent } from './concepts/concepts.component';
+import { CrossFieldValidationComponent } from './cross-field-validation/cross-field-validation.component';
+import { CustomValidationComponent } from './custom-validation/custom-validation.component';
+import { DynamicFormArrayComponent } from './dynamic-form-array/dynamic-form-array.component';
+import { DynamicValidationComponent } from './dynamic-validation/dynamic-validation.component';
+import { FileInputComponent } from './file-input/file-input.component';
 import { FormArrayComponent } from './form-array/form-array.component';
 import { FormControlComponent } from './form-control/form-control.component';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { IndexComponent } from './index/index.component';
-import { DynamicFormArrayComponent } from './dynamic-form-array/dynamic-form-array.component';
-import { ConceptsComponent } from './concepts/concepts.component';
-import { FileInputComponent } from './file-input/file-input.component';
-import { CrossFieldValidationComponent } from './cross-field-validation/cross-field-validation.component';
+import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'cross-field-validation',
     component: CrossFieldValidationComponent,
+  },
+  {
+    path: 'dynamic-validation',
+    component: DynamicValidationComponent,
   },
   {
     path: 'file-input',

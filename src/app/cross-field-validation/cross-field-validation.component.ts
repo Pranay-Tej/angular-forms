@@ -34,6 +34,6 @@ export class CrossFieldValidationComponent implements OnInit {
 
   next() {
     console.log(this.signUpForm.getRawValue())
-    this.router.navigate(['/file-input'])
+    this.router.navigate(['/dynamic-validation'])
   }
 }
