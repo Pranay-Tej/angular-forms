@@ -35,11 +35,12 @@
         matInput
         placeholder="Confirm Password"
         formControlName="confirmPassword"
+        [errorStateMatcher]="errorMatcher"
       />
       <mat-error *ngIf="confirmPassword.errors?.required"
         >Password confirmation is required</mat-error
       >
-      <mat-error *ngIf="confirmPassword.errors?.passwordMisMatch"
+      <mat-error *ngIf="signUpForm.errors?.passwordMisMatch"
         >Passwords should match</mat-error
       >
     </mat-form-field>
