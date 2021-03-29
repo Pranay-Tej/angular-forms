@@ -1,6 +1,5 @@
 <div class="container fullHeight">
   <h1>Dynamic Validation</h1>
-  <h3>Incomplete...</h3>
   <form [formGroup]="profileForm" class="loginForm" (ngSubmit)="next()">
     <mat-form-field appearance="fill">
       <mat-label>Minimum Length</mat-label>
@@ -36,6 +35,7 @@
         matInput
         placeholder="Username"
         formControlName="username"
+        [errorStateMatcher]="errorMatcher"
       />
       <mat-error *ngIf="username.errors?.required"
         >Username is required</mat-error
@@ -48,13 +48,21 @@
         >Username must not be longer than
         {{ username.value.length }} characters</mat-error
       > -->
-      <mat-error *ngIf="username.errors?.minimumLength"
+      <!-- <mat-error *ngIf="username.errors?.minimumLength"
         >Enter at least
         {{ username.errors?.minimumLength.value }} characters</mat-error
       >
       <mat-error *ngIf="username.errors?.maximumLength"
         >Enter less than
         {{ username.errors?.maximumLength.value }} characters</mat-error
+      > -->
+      <mat-error *ngIf="profileForm.errors?.minimumLength"
+        >Enter at least
+        {{ profileForm.errors?.minimumLength.value }} characters</mat-error
+      >
+      <mat-error *ngIf="profileForm.errors?.maximumLength"
+        >Enter a maximum of
+        {{ profileForm.errors?.maximumLength.value }} characters</mat-error
       >
     </mat-form-field>
     <button

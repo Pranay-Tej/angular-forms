@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  FormGroupDirective,
+  NgForm,
+  Validators,
+} from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import usernameLengthValidator from './username-length.validator';
 
@@ -12,6 +20,8 @@ export class DynamicValidationComponent implements OnInit {
   get username() {
     return this.profileForm.get('username');
   }
+  // use this property for all fields which require form level validation
+  errorMatcher: ErrorStateMatcher;
   profileForm: FormGroup = this.formBuilder.group(
     {
       usernameMinLength: this.formBuilder.control(3, [Validators.required]),
@@ -22,10 +32,12 @@ export class DynamicValidationComponent implements OnInit {
         // Validators.maxLength(5),
       ]),
     },
-    { validators: usernameLengthValidator }
+    { validators: [usernameLengthValidator] }
   );
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    this.errorMatcher = new CrossFieldErrorMatcher();
+  }
 
   ngOnInit(): void {
     // ################ Below code DOES NOT work !!! ######################
@@ -45,5 +57,14 @@ export class DynamicValidationComponent implements OnInit {
 
   next() {
     this.router.navigate(['/file-input']);
+  }
+}
+
+class CrossFieldErrorMatcher implements ErrorStateMatcher {
+  isErrorState(
+    control: AbstractControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
+    return control.touched && (control.errors !== null || form.errors !== null);
   }
 }
