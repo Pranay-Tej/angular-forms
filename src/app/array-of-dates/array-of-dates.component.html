@@ -1,0 +1,133 @@
+<div class="container">
+  <h1>Array of Date, Time pickers</h1>
+  <form (ngSubmit)="save()" class="loginForm" [formGroup]="eventsForm">
+    <div formArrayName="eventList" class="userList">
+      <div
+        *ngFor="let user of eventListFormArray.controls; let i = index"
+        formGroupName="{{ i }}"
+        class="user"
+      >
+        <mat-form-field appearance="fill">
+          <mat-label>Event {{ i }} Start Date</mat-label>
+          <input
+            name="startDate{{ i }}"
+            type="text"
+            matInput
+            placeholder="dd.MM.yy"
+            formControlName="startDate"
+            [matDatepicker]="startDatei"
+            [attr.id]="startDate + i"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="startDatei"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #startDatei></mat-datepicker>
+          <mat-error
+            *ngIf="
+              eventListFormArray.controls[i].get('startDate').errors?.required
+            "
+            >Start Date is required</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Event {{ i }} Start Time</mat-label>
+          <input
+            name="startTime{{ i }}"
+            type="text"
+            matInput
+            placeholder="HH:mm"
+            formControlName="startTime"
+            [format]="24"
+            [ngxTimepicker]="startTimei"
+            [attr.id]="startTime + i"
+          />
+          <ngx-material-timepicker
+            #startTimei
+            [enableKeyboardInput]="true"
+          ></ngx-material-timepicker>
+
+          <mat-error
+            *ngIf="
+              eventListFormArray.controls[i].get('startTime').errors?.required
+            "
+            >Start Time is required</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Event {{ i }} End Date</mat-label>
+          <input
+            name="endDate{{ i }}"
+            type="text"
+            matInput
+            placeholder="dd.MM.yy"
+            formControlName="endDate"
+            [matDatepicker]="endDatei"
+            [attr.id]="endDate + i"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="endDatei"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #endDatei></mat-datepicker>
+          <mat-error
+            *ngIf="
+              eventListFormArray.controls[i].get('endDate').errors?.required
+            "
+            >End Date is required</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Event {{ i }} End Time</mat-label>
+          <input
+            name="endTime{{ i }}"
+            type="text"
+            matInput
+            placeholder="HH:mm"
+            formControlName="endTime"
+            [format]="24"
+            [ngxTimepicker]="endTimei"
+            [attr.id]="endTime + i"
+          />
+          <ngx-material-timepicker
+            #endTimei
+            [enableKeyboardInput]="true"
+          ></ngx-material-timepicker>
+
+          <mat-error
+            *ngIf="
+              eventListFormArray.controls[i].get('endTime').errors?.required
+            "
+            >End Time is required</mat-error
+          >
+        </mat-form-field>
+
+        <button
+          *ngIf="i !== 0 || eventListFormArray.controls.length > 1"
+          mat-icon-button
+          color="warn"
+          type="button"
+          (click)="deleteEvent(i)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      <button mat-flat-button type="button" (click)="addEvent()">
+        <mat-icon>add</mat-icon>Add Event
+      </button>
+    </div>
+
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="eventsForm.invalid"
+    >
+      Save
+    </button>
+  </form>
+</div>

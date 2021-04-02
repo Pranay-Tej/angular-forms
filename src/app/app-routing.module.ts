@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArrayOfDatesComponent } from './array-of-dates/array-of-dates.component';
 import { ArrayOfGroupsComponent } from './array-of-groups/array-of-groups.component';
 import { ConceptsComponent } from './concepts/concepts.component';
 import { CrossFieldValidationComponent } from './cross-field-validation/cross-field-validation.component';
@@ -21,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'concepts',
-    component: ConceptsComponent
+    component: ConceptsComponent,
   },
   {
     path: 'form-control',
@@ -64,6 +65,10 @@ const routes: Routes = [
     component: FileInputComponent,
   },
   {
+    path: 'array-of-dates',
+    component: ArrayOfDatesComponent,
+  },
+  {
     path: 'experiments',
     loadChildren: () =>
       import('./experiments/experiments.module').then(
@@ -72,8 +77,8 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({

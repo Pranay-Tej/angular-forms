@@ -18,6 +18,7 @@ import { IndexComponent } from './index/index.component';
 import { MaterialModule } from './material/material.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.component';
+import { ArrayOfDatesComponent } from './array-of-dates/array-of-dates.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.
     IndexComponent,
     NavBarComponent,
     NestedFormGroupComponent,
+    ArrayOfDatesComponent,
   ],
   imports: [
     AppRoutingModule,
