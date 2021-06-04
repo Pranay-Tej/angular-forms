@@ -19,6 +19,7 @@ import { MaterialModule } from './material/material.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.component';
 import { ArrayOfDatesComponent } from './array-of-dates/array-of-dates.component';
+import { CheckboxGroupComponent } from './checkbox-group/checkbox-group.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ArrayOfDatesComponent } from './array-of-dates/array-of-dates.component
     NavBarComponent,
     NestedFormGroupComponent,
     ArrayOfDatesComponent,
+    CheckboxGroupComponent,
   ],
   imports: [
     AppRoutingModule,

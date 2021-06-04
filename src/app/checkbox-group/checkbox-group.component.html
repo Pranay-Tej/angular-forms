@@ -1,0 +1,22 @@
+<div class="container fullHeight">
+  <h1>Checkbox Group</h1>
+  <form (ngSubmit)="next()" class="softwareForm" [formGroup]="softwareForm">
+    <div *ngFor="let software of allSoftware; let i = index">
+      <mat-checkbox (change)="onCheckChange($event)" [value]="software">{{
+        software
+      }}</mat-checkbox>
+    </div>
+    <mat-error *ngIf="softwareList.errors?.minArrayLength"
+      >Select atleast
+      {{ softwareList.errors?.minArrayLength.min }} items</mat-error
+    >
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="softwareForm.invalid"
+    >
+      Next
+    </button>
+  </form>
+</div>

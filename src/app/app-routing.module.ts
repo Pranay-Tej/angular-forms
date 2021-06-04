@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArrayOfDatesComponent } from './array-of-dates/array-of-dates.component';
 import { ArrayOfGroupsComponent } from './array-of-groups/array-of-groups.component';
+import { CheckboxGroupComponent } from './checkbox-group/checkbox-group.component';
 import { ConceptsComponent } from './concepts/concepts.component';
 import { CrossFieldValidationComponent } from './cross-field-validation/cross-field-validation.component';
 import { CustomValidationComponent } from './custom-validation/custom-validation.component';
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: 'dynamic-form-array',
     component: DynamicFormArrayComponent,
+  },
+  {
+    path: 'checkbox-group',
+    component: CheckboxGroupComponent,
   },
   {
     path: 'array-of-groups',
