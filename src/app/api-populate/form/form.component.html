@@ -1,0 +1,115 @@
+<div class="container">
+  <h1>Populate from API</h1>
+  <form (ngSubmit)="save()" class="requestForm" [formGroup]="requestForm">
+    <!-- <mat-form-field class="example-full-width">
+      <mat-label>User</mat-label>
+      <input
+        type="text"
+        placeholder="Select employee"
+        aria-label="Number"
+        matInput
+        formControlName="user"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let user of filteredUserList | async"
+          [value]="user"
+        >
+          {{ user }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field> -->
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select Employee</mat-label>
+      <mat-select formControlName="user">
+        <mat-option *ngFor="let user of userList" [value]="user">
+          {{ user }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Select Reason</mat-label>
+      <mat-select formControlName="reason">
+        <mat-option *ngFor="let reason of reasonList" [value]="reason">
+          {{ reason }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Other reason</mat-label>
+      <input matInput formControlName="otherReason" />
+    </mat-form-field>
+
+    <label id="os">Pick your operating system</label>
+
+    <mat-radio-group
+      aria-labelledby="os"
+      aria-label="Select an os"
+      formControlName="os"
+      class="radioGroup"
+    >
+      <mat-radio-button *ngFor="let osItem of osList" [value]="osItem">{{
+        osItem
+      }}</mat-radio-button>
+      <mat-error *ngIf="os.touched && os.errors?.required"
+        >This field is required
+      </mat-error>
+    </mat-radio-group>
+
+    <h2>Select Softwares</h2>
+    <div *ngFor="let software of softwareList; let i = index">
+      <mat-checkbox
+        (change)="onCheckChange($event)"
+        [value]="software"
+        [checked]="contains(software)"
+        >{{ software }}</mat-checkbox
+      >
+    </div>
+
+    <h2>Add additional Softwares</h2>
+    <div formArrayName="otherSoftware" class="otherSoftware">
+      <div *ngFor="let phone of otherSoftware.controls; let i = index">
+        <mat-form-field appearance="fill">
+          <mat-label>Software:{{ i }}</mat-label>
+          <input
+            name="software{{ i }}"
+            type="text"
+            matInput
+            placeholder="Software name"
+            formControlName="{{ i }}"
+          />
+        </mat-form-field>
+        <button
+          *ngIf="i !== 0 || otherSoftware.controls.length > 1"
+          mat-icon-button
+          color="warn"
+          type="button"
+          (click)="deleteSoftware(i)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <button mat-flat-button type="button" (click)="addSoftware()">
+        <mat-icon>add</mat-icon>Add Software
+      </button>
+    </div>
+
+    <div class="formActions">
+      <button mat-flat-button type="button" routerLink="/api-populate">
+        Cancel
+      </button>
+      <button
+        mat-flat-button
+        color="primary"
+        type="submit"
+        [disabled]="requestForm.invalid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

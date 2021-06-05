@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -28,6 +29,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
   imports: [
     CommonModule,
     NgxMaterialTimepickerModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
@@ -53,6 +55,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
   exports: [
     NgxMaterialTimepickerModule,
     MatButtonModule,
+    MatAutocompleteModule,
     MatCardModule,
     MatCheckboxModule,
     MatDatepickerModule,

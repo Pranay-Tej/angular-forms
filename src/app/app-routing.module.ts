@@ -79,6 +79,13 @@ const routes: Routes = [
     component: ArrayOfDatesComponent,
   },
   {
+    path: 'api-populate',
+    loadChildren: () =>
+      import('./api-populate/api-populate.module').then(
+        (m) => m.ApiPopulateModule
+      ),
+  },
+  {
     path: 'experiments',
     loadChildren: () =>
       import('./experiments/experiments.module').then(

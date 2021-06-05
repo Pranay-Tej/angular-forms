@@ -1,0 +1,37 @@
+<button
+  mat-flat-button
+  color="primary"
+  routerLink="/api-populate/new"
+  class="new"
+>
+  Create new
+</button>
+
+<div>
+  <div class="request" *ngFor="let request of requestList">
+    <div>
+      {{ request.id }}
+    </div>
+    <div>
+      {{ request.user }}
+    </div>
+    <div>
+      {{ request.os }}
+    </div>
+    <button
+      mat-icon-button
+      aria-label="edit"
+      routerLink="/api-populate/{{ request.id }}"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      color="warn"
+      aria-label="delete"
+      (click)="delete(request.id)"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
