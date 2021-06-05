@@ -1,0 +1,12 @@
+.osForm {
+  margin: 2em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}

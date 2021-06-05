@@ -14,6 +14,7 @@ import { FormControlComponent } from './form-control/form-control.component';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { IndexComponent } from './index/index.component';
 import { NestedFormGroupComponent } from './nested-form-group/nested-form-group.component';
+import { RadioGroupComponent } from './radio-group/radio-group.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'dynamic-form-array',
     component: DynamicFormArrayComponent,
+  },
+  {
+    path: 'radio-group',
+    component: RadioGroupComponent,
   },
   {
     path: 'checkbox-group',

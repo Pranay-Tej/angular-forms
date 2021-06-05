@@ -55,7 +55,7 @@ export class DynamicFormArrayComponent implements OnInit {
     console.log(this.loginForm.getRawValue());
 
     if (response) {
-      this.router.navigate(['/checkbox-group']);
+      this.router.navigate(['/radio-group']);
     }
   }
 }

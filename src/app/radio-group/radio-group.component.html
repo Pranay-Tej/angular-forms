@@ -1,0 +1,28 @@
+<div class="container fullHeight">
+  <h1>Checkbox Group</h1>
+  <form (ngSubmit)="next()" class="osForm" [formGroup]="osForm">
+    <label id="os">Pick your operating system</label>
+
+    <mat-radio-group
+      aria-labelledby="os"
+      aria-label="Select an os"
+      formControlName="system"
+      class="radioGroup"
+    >
+      <mat-radio-button *ngFor="let os of osList" [value]="os">{{
+        os
+      }}</mat-radio-button>
+      <mat-error *ngIf="system.touched && system.errors?.required"
+        >This field is required
+      </mat-error>
+    </mat-radio-group>
+    <button
+      mat-flat-button
+      color="primary"
+      type="submit"
+      [disabled]="osForm.invalid"
+    >
+      Next
+    </button>
+  </form>
+</div>
