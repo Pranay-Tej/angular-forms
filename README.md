@@ -7,6 +7,7 @@ Angular Forms concepts and scenarios
 - Nested Form Group
 - Form Array
 - Dynamic Form Array
+- Radio Group
 - Checkbox Group
 - Array of Form Groups
 - Custom Validation
@@ -14,6 +15,11 @@ Angular Forms concepts and scenarios
 - Dynamic validation
 - File Input
 - Array of Date, Time picker
+- Populate with API
+  - Populate array group from API response
+  - Use same form for add/edit
+  - Disable/Enable dropdown based on another dropdown's value
+  - Populate one dropdown based on another dropdown's value
 
 ---
 

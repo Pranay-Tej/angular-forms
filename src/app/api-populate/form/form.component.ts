@@ -9,7 +9,7 @@ import {
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { filter, map, startWith } from 'rxjs/operators';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { convertUpdateArguments } from '@angular/compiler/src/compiler_util/expression_converter';
 
@@ -22,13 +22,20 @@ export class FormComponent implements OnInit {
   userList = [];
   filteredUserList: Observable<string[]>;
   reasonList = ['Project', 'On Site', 'Other'];
+  brandList = ['Apple', 'Acer'];
+  modelList = [];
   osList = ['Windows', 'Mac', 'Linux'];
   softwareList = ['Postman', 'Node JS', 'VS Code'];
   request;
   requestForm = this.fb.group({
     user: this.fb.control('', Validators.required),
     reason: this.fb.control('', Validators.required),
-    otherReason: this.fb.control('', Validators.required),
+    otherReason: this.fb.control(
+      { value: '', disabled: true },
+      Validators.required
+    ),
+    brand: this.fb.control('', Validators.required),
+    model: this.fb.control({ value: '', disabled: true }, Validators.required),
     os: this.fb.control('', Validators.required),
     software: this.fb.array([]),
     otherSoftware: this.fb.array([]),
@@ -43,13 +50,18 @@ export class FormComponent implements OnInit {
   get otherReason() {
     return this.requestForm.get('otherReason');
   }
+  get brand() {
+    return this.requestForm.get('brand');
+  }
+  get model() {
+    return this.requestForm.get('model');
+  }
   get os() {
     return this.requestForm.get('os');
   }
   get software() {
     return this.requestForm.get('software') as FormArray;
   }
-
   get otherSoftware() {
     return this.requestForm.get('otherSoftware') as FormArray;
   }
@@ -85,6 +97,14 @@ export class FormComponent implements OnInit {
       }
     });
 
+    // get models by brand
+    this.brand.valueChanges
+      .pipe(filter((val) => val !== ''))
+      .subscribe((val) => {
+        this.fetchModelList(val);
+        this.model.enable();
+      });
+
     // fetch data by id
     this.activatedRoute.params.subscribe((params) => {
       const id = <string>params['id'];
@@ -100,6 +120,8 @@ export class FormComponent implements OnInit {
               user,
               reason,
               otherReason = '',
+              brand,
+              model,
               os,
               software,
               otherSoftware,
@@ -109,6 +131,8 @@ export class FormComponent implements OnInit {
               user,
               reason,
               otherReason,
+              brand,
+              model,
               os,
               // software: this.fb.array([...software]),
               // otherSoftware: this.fb.array([...otherSoftware]),
@@ -148,6 +172,12 @@ export class FormComponent implements OnInit {
     // return this.userList.filter((option) =>
     //   new RegExp(value, 'i').test(option)
     // );
+  }
+
+  fetchModelList(brand) {
+    this.httpClient
+      .get(`${environment.baseURL}/laptops?brand=${brand}`)
+      .subscribe((data: any) => (this.modelList = data));
   }
 
   onCheckChange(event: MatCheckboxChange) {
